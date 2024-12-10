@@ -1,0 +1,19 @@
+HTTrack3.49-2+htsswf+htsjava launched on Mon, 09 Dec 2024 15:52:37 at https://papi.cash +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qir20%e3C1%Ps2u1%s%uN0%I0p3DaK0H0%kf2A250000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://papi.cash -O1 "D:\papiChulo" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:52:38	Warning: 	file not stored in cache due to bogus state (incomplete type with OK (200), size 0): https://www.facebook.com/tr?id=3031824483781293&ev=PageView&noscript=1
+15:52:55	Error: 	"Not Found" (404) at link https://fonts.googleapis.com/ (from https://papi.cash/)
+15:52:55	Error: 	"Not Found" (404) at link https://fonts.gstatic.com/ (from https://papi.cash/)
+15:52:55	Error: 	"Bad Request" (400) at link https://www.googletagmanager.com/gtm.js?id= (from https://papi.cash/)
+15:52:56	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://m.mexc.com/robots.txt (from https://papi.cash/)
+15:52:56	Warning: 	Retry after error -4 (No data (connection closed)) at link https://m.mexc.com/trade/spot-kline (from https://papi.cash/)
+15:52:56	Warning: 	Retry after error -4 (No data (connection closed)) at link https://m.mexc.com/trade/spot-kline (from https://papi.cash/)
+15:52:57	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://m.mexc.com/trade/spot-kline (from https://papi.cash/)
+
+HTTrack Website Copier/3.49-2 mirror complete in 20 seconds : 48 links scanned, 36 files written (5899416 bytes overall), 1 files updated [473 bytes received at 23 bytes/sec]
+(5 errors, 3 warnings, 0 messages)
