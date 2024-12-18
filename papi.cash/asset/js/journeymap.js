@@ -83,8 +83,10 @@ function updateBranches(position) {
 function showPopup(branch) {
   const goalTitle = branch.querySelector("span").innerText; // Goal name
   popupTitle.innerText = goalTitle;
-  popupText.innerText = `This is the description for ${goalTitle}. Here, you can add more content about this goal.`;
+  // Get the description for the specific goal
+  const goalDescription = getGoalDescription(goalTitle);
 
+  popupText.innerText = goalDescription;
   // Show the modal with transition
   popup.style.display = "flex"; // Initially set to flex
   setTimeout(() => {
@@ -98,3 +100,21 @@ function hidePopup() {
 }
 
 popupClose.addEventListener("click", hidePopup);
+popup.addEventListener("click", hidePopup);
+
+// Define goal descriptions
+function getGoalDescription(goalTitle) {
+  const descriptions = {
+    "Goal 1: Community Building":
+      "Community Building is about fostering a sense of belonging among members, creating an environment where individuals feel connected and valued. Activities and initiatives may include social events, networking opportunities, and collaboration efforts that promote long-term relationships.",
+    "Goal 2: Marketing and Adoption":
+      "Marketing and Adoption focuses on creating awareness about the product or service, reaching a wider audience, and encouraging adoption. This goal often involves strategies such as digital marketing campaigns, influencer partnerships, and community outreach to increase user base and engagement.",
+    "Goal 3: Sustainability":
+      "Sustainability is the goal of creating practices and systems that promote environmental, economic, and social well-being over the long term. Initiatives may include reducing carbon footprint, utilizing renewable energy, and ensuring that products and processes are environmentally responsible and economically viable.",
+    "Goal 4: Security and Compliance":
+      "Security and Compliance aims to protect sensitive information and maintain adherence to relevant laws and regulations. It involves safeguarding data, ensuring privacy, implementing secure processes, and ensuring compliance with legal frameworks to prevent breaches and protect stakeholders.",
+  };
+
+  // Return the description for the current goal
+  return descriptions[goalTitle] || "Description not available.";
+}
