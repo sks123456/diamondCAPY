@@ -1807,18 +1807,20 @@ a.plyr__control::before {
   width: 100%;
   overflow-x: auto; /* Enables horizontal scrolling */
   position: relative;
+  box-sizing: border-box; /* Ensures padding is considered in width */
 }
 
 .roadmap {
   user-select: none;
   position: relative;
-  width: 100%;
+  width: auto; /* Use automatic width to adjust dynamically */
   height: 300px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Align items to the start */
   align-items: center;
   overflow-x: auto; /* Enable horizontal scrolling */
   white-space: nowrap; /* Prevent line breaks, ensuring elements are placed in a row */
+  flex-wrap: nowrap; /* Prevent wrapping on larger screens */
 }
 .start-node,
 .end-node {
@@ -2053,4 +2055,54 @@ a.plyr__control::before {
 
 .description-modal.show .modal-content {
   transform: scale(1); /* Zoom-in effect */
+}
+
+/* Adjust branch positioning for smaller screens */
+@media (max-width: 768px) {
+  .branch {
+    width: 100%; /* Make branches take full width */
+    left: 0; /* Center align branches */
+    margin: 10px 0; /* Space between branches */
+  }
+
+  .branch-label-above,
+  .branch-label-below {
+    font-size: 0.8rem; /* Smaller text on mobile */
+    margin-top: 5px; /* Reduced margin for labels */
+  }
+
+  .start-node,
+  .end-node {
+    width: 80px; /* Smaller nodes for mobile */
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
+  }
+}
+/* Adjust the dot size on mobile */
+@media (max-width: 768px) {
+  .dot {
+    width: 40px;
+    height: 40px;
+    background-size: 50%; /* Scale image down */
+  }
+
+  .line-container {
+    height: 30px; /* Reduce line height for mobile */
+    margin: 0 10px; /* Adjust margin */
+  }
+}
+/* Make modal responsive for mobile screens */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%; /* Make the modal content take up more space */
+    padding: 15px; /* Less padding on small screens */
+  }
+
+  .modal-close {
+    font-size: 18px; /* Smaller close button */
+  }
+
+  .modal-action-btn {
+    width: 100%; /* Make the button full width */
+    padding: 12px; /* Adjust padding for touch devices */
+  }
 }
