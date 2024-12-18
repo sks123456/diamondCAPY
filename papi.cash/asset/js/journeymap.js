@@ -6,6 +6,7 @@ const popup = document.getElementById("description-modal");
 const popupText = document.getElementById("modal-description");
 const popupTitle = document.getElementById("modal-title");
 const popupClose = document.getElementById("modal-close");
+const roadmapContainer = document.querySelector(".roadmap"); // Reference to the parent container
 
 let isDragging = false;
 let currentLeft = 0;
@@ -41,6 +42,9 @@ function updateUI() {
 
   // Update the line to match the dot's position
   lineExtension.style.width = `${currentLeft}px`;
+
+  // Trigger auto-scrolling if the dot is close to the left or right end
+  autoScrollRoadmap(currentLeft);
 
   // Update the branches and check if the description should be shown
   updateBranches(currentLeft);
@@ -83,10 +87,12 @@ function updateBranches(position) {
 function showPopup(branch) {
   const goalTitle = branch.querySelector("span").innerText; // Goal name
   popupTitle.innerText = goalTitle;
+
   // Get the description for the specific goal
   const goalDescription = getGoalDescription(goalTitle);
 
   popupText.innerText = goalDescription;
+
   // Show the modal with transition
   popup.style.display = "flex"; // Initially set to flex
   setTimeout(() => {
@@ -96,7 +102,10 @@ function showPopup(branch) {
 
 // Hide the popup with smooth transition
 function hidePopup() {
-  popup.classList.remove("show"); // Remove the show class to start the fade-out transition
+  if (popup) {
+    // Check if popup is available
+    popup.classList.remove("show"); // Remove the show class to start the fade-out transition
+  }
 }
 
 popupClose.addEventListener("click", hidePopup);
@@ -105,16 +114,47 @@ popup.addEventListener("click", hidePopup);
 // Define goal descriptions
 function getGoalDescription(goalTitle) {
   const descriptions = {
-    "Goal 1: Community Building":
-      "Community Building is about fostering a sense of belonging among members, creating an environment where individuals feel connected and valued. Activities and initiatives may include social events, networking opportunities, and collaboration efforts that promote long-term relationships.",
-    "Goal 2: Marketing and Adoption":
-      "Marketing and Adoption focuses on creating awareness about the product or service, reaching a wider audience, and encouraging adoption. This goal often involves strategies such as digital marketing campaigns, influencer partnerships, and community outreach to increase user base and engagement.",
-    "Goal 3: Sustainability":
-      "Sustainability is the goal of creating practices and systems that promote environmental, economic, and social well-being over the long term. Initiatives may include reducing carbon footprint, utilizing renewable energy, and ensuring that products and processes are environmentally responsible and economically viable.",
-    "Goal 4: Security and Compliance":
-      "Security and Compliance aims to protect sensitive information and maintain adherence to relevant laws and regulations. It involves safeguarding data, ensuring privacy, implementing secure processes, and ensuring compliance with legal frameworks to prevent breaches and protect stakeholders.",
+    "Goal 1: Meme Coin Community Growth":
+      "This goal focuses on building a strong community for the meme coin project through social engagement, campaigns, and influencer collaborations. The aim is to create a fun and loyal user base that drives the coin's value and adoption.",
+    "Goal 2: NFT Collection Launch":
+      "The NFT Collection will feature unique digital assets, designed to represent the meme coin ecosystem. These NFTs can be used in various applications, and the sale will raise funds and attract more investors into the community.",
+    "Goal 3: NFT Game Release":
+      "This goal is about launching an engaging NFT-based game where users can play to earn, stake NFTs, and engage with the meme coin ecosystem. The game will drive user interaction and coin utility.",
+    "Goal 4: Trading Bot and Staking Launch":
+      "Launch automated trading bots and staking solutions to enhance user experience and provide additional revenue streams. These tools will help users maximize profits while supporting the meme coin's value.",
+    "Goal 5: DHC Integration with BY1":
+      "Partner with BY1.io to allow DHC (our meme coin) to be used as in-app currency on their platform. This partnership will increase the utility of the coin and enhance its adoption.",
+    "Goal 6: Trading Tools Development":
+      "Develop and launch a set of advanced trading tools designed to help traders maximize their profits using the meme coin. This includes price alerts, charts, and automated trading systems.",
+    "Goal 7: DHC Token Utility Expansion":
+      "Expand the use cases of the DHC token by integrating it into more platforms, services, and marketplaces. This goal aims to increase the demand and real-world utility of the token.",
+    "Goal 8: Strategic Partnerships & Expansion":
+      "Focus on securing key strategic partnerships with influencers, projects, and platforms to help expand the meme coin ecosystem and increase its global reach.",
   };
+  return descriptions[goalTitle] || "No description available for this goal.";
+}
 
-  // Return the description for the current goal
-  return descriptions[goalTitle] || "Description not available.";
+// Auto-scroll the roadmap container when the dot is near the right or left edge
+function autoScrollRoadmap(dotPosition) {
+  const containerWidth = roadmapContainer.offsetWidth;
+  const containerScrollWidth = roadmapContainer.scrollWidth;
+
+  // If the dot is near the right edge, scroll the container to the right
+  if (dotPosition >= containerWidth - 200) {
+    // 100px buffer before triggering scroll
+    const maxScroll = containerScrollWidth - containerWidth;
+    roadmapContainer.scrollLeft = Math.min(
+      maxScroll,
+      roadmapContainer.scrollLeft + 10 // Scroll to the right gradually
+    );
+  }
+
+  // If the dot is near the left edge, scroll the container to the left
+  else if (dotPosition - containerWidth <= containerWidth + 100) {
+    // 100px buffer for scrolling left
+    roadmapContainer.scrollLeft = Math.max(
+      0,
+      roadmapContainer.scrollLeft - 10 // Scroll to the left gradually
+    );
+  }
 }
