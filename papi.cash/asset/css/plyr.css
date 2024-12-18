@@ -2004,45 +2004,58 @@ a.plyr__control::before {
   align-items: center;
   opacity: 0; /* Initial opacity is 0 */
   visibility: hidden; /* Make the modal invisible */
+  overflow-y: auto; /* Allow scrolling if content overflows */
   transition: opacity 0.3s ease, visibility 0s 0.3s; /* Smooth transition */
 }
-
-/* Modal Content Styling with Zoom-In */
+/* Modal Content */
 .modal-content {
-  background-color: white;
+  background: #fff;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  max-width: 800px; /* Increase the max-width for a wider modal */
+  width: 90%; /* Flexible width for small screens */
+  max-height: 70vh; /* Set a maximum height to keep it shorter */
+  overflow-y: auto; /* Allow overflow scrolling if content exceeds max-height */
+  margin: 30px auto; /* Center the modal */
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 80%;
-  position: relative;
-  transform: scale(0.8); /* Initial scale smaller */
-  transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
 }
 
-/* Close Button for Modal */
+/* Modal Title */
+#modal-title {
+  font-size: 28px; /* Bigger font size for title */
+  font-weight: bold;
+  margin-bottom: 15px; /* More spacing below the title */
+  color: #333; /* Darker color for title */
+}
+
+/* Hero Image */
+#modal-image {
+  width: 100%; /* Full width */
+  height: 300px; /* Fixed height for all images */
+  object-fit: cover; /* Maintain aspect ratio and cover the set dimensions */
+  border-radius: 12px; /* Match corners with modal */
+  margin-bottom: 20px; /* Space below the image */
+}
+
+/* Modal Description */
+#modal-description {
+  font-size: 16px;
+  line-height: 1.5; /* Increase line height for readability */
+  color: #333; /* Color for text */
+}
+
+/* Modal Close Button */
 .modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #333;
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 24px; /* Larger size for visibility */
+  position: absolute; /* Positioning for close button */
+  top: 15px; /* Space from top */
+  right: 25px; /* Space from right */
+  color: #888; /* Color for close button */
 }
 
-/* Action Button Styling */
-.modal-action-btn {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 20px;
-  border-radius: 4px;
-  text-align: center;
-}
-
-.modal-action-btn:hover {
-  background-color: #45a049;
+.modal-close:hover {
+  color: #333; /* Change color on hover */
 }
 
 /* Show modal and zoom effect */
@@ -2104,5 +2117,11 @@ a.plyr__control::before {
   .modal-action-btn {
     width: 100%; /* Make the button full width */
     padding: 12px; /* Adjust padding for touch devices */
+  }
+}
+
+@media (max-width: 600px) {
+  #modal-image {
+    height: 200px; /* Shorter height on small screens for better visibility */
   }
 }

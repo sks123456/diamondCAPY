@@ -596,6 +596,7 @@ vgo(‘process’);
                 </a>
               </div>
             </div>
+            
             <div class="roadmap-container">
               <div class="roadmap">
                 <div class="start-node">Start</div>
@@ -644,6 +645,8 @@ vgo(‘process’);
                 </div>
                 <div class="end-node" style="left: 80%;">End</div>
               </div>
+              <button id="back-to-start-btn" class="back-to-start-btn">Back to Start</button>
+
             </div>
             
             <!-- Modal for Description -->
@@ -651,11 +654,11 @@ vgo(‘process’);
               <div class="modal-content">
                 <span id="modal-close" class="modal-close">&times;</span>
                 <h2 id="modal-title">Goal Title</h2>
+                <img id="modal-image" src="" alt="Goal Image" style="width: 100%; height: auto; object-fit: cover; margin-bottom: 10px;">
                 <div id="modal-description">Goal description will go here...</div>
               </div>
             </div>
             <!-- Add this button somewhere in your HTML, e.g., below the roadmap -->
-<button id="back-to-start-btn" class="back-to-start-btn">Back to Start</button>
 
         </section>
     </main>

@@ -5,38 +5,118 @@ const branches = document.querySelectorAll(".branch");
 const popup = document.getElementById("description-modal");
 const popupText = document.getElementById("modal-description");
 const popupTitle = document.getElementById("modal-title");
+const popupImage = document.getElementById("modal-image"); // Assuming you updated modal HTML to include an image
 const popupClose = document.getElementById("modal-close");
 const roadmapContainer = document.querySelector(".roadmap"); // Reference to the parent container
 
 let isDragging = false;
 let currentLeft = 0;
 
-// For mobile and desktop, listen to both mouse and touch events
+// Define goals data
+const goalsData = [
+  {
+    id: "goal1",
+    title: "Goal 1: Meme Coin Community Growth",
+    description:
+      "As a Diamond Hand Cabybara meme coin, this goal focuses on building a vibrant community through engaging social campaigns, educational initiatives, and strategic influencer partnerships. Our objective is to cultivate a dedicated user base that resonates with the values of loyalty and long-term holding, ensuring our coin thrives within the larger cryptocurrency ecosystem.",
+    image:
+      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+  },
+  {
+    id: "goal2",
+    title: "Goal 2: NFT Collection Launch",
+    description:
+      "The NFT Collection will introduce unique Cabybara-themed digital assets, each embodying the spirit of our meme coin project. These collectibles will not only serve as fun and visually appealing items but will also play a role in fundraising and community building. By incorporating utility and desirability, we aim to attract investors and collectors who want to be part of the Cabybara ecosystem.",
+    image:
+      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+  },
+  {
+    id: "goal3",
+    title: "Goal 3: NFT Game Release",
+    description:
+      "This goal is centered around the launch of an engaging NFT-based game leveraging the charm of the Cabybara meme. Players will have the opportunity to earn unique NFTs, stake their assets, and fully immerse themselves in a playful environment that promotes interaction and utility within our meme coin universe. With this game, we aim to create a fun way for users to engage with our coin ecosystem while driving adoption and interaction.",
+    image:
+      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+  },
+  {
+    id: "goal4",
+    title: "Goal 4: Trading Bot and Staking Launch",
+    description:
+      "To empower our community, we are committed to launching automated trading bots and staking solutions. This initiative will enhance the user experience by providing tools that allow participants to maximize their returns while helping to stabilize and support the value of the Diamond Hand Cabybara coin. Our goal is to create an ecosystem where both novice and seasoned traders can thrive.",
+    image:
+      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+  },
+  {
+    id: "goal5",
+    title: "Goal 5: DHC Integration with BY1",
+    description:
+      "Partnering with BY1.io represents a significant step in enhancing the utility of the Diamond Hand Cabybara coin. Our aim is to integrate DHC as an in-app currency on their platform, creating real-world applications for our coin. This partnership will not only drive adoption but also create value for holders, reinforcing the commitment to building connections beyond the cryptocurrency space.",
+    image:
+      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+  },
+  {
+    id: "goal6",
+    title: "Goal 6: Trading Tools Development",
+    description:
+      "We envision a suite of advanced trading tools tailored specifically for the Cabybara community. These tools will include price alerts, market analysis charts, and automated trading systems, all designed to assist traders in making informed decisions. By providing powerful resources, we aim to empower our community and promote successful trading strategies that benefit everyone involved.",
+    image:
+      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+  },
+  {
+    id: "goal7",
+    title: "Goal 7: DHC Token Utility Expansion",
+    description:
+      "Expand the use cases of the DHC token by integrating it into more platforms, services, and marketplaces.",
+    image:
+      "Expanding the utility of the Diamond Hand Cabybara token is essential to our long-term vision. We will work tirelessly to integrate DHC into various platforms, services, and decentralized marketplaces, ensuring that our token is not just a speculative asset but a functional part of everyday transactions. This goal will drive demand and underpin the real-world use cases for our community.",
+  },
+  {
+    id: "goal8",
+    title: "Goal 8: Strategic Partnerships & Expansion",
+    description:
+      "Strategic partnerships will be key to our growth strategy. By collaborating with influencers, projects, and platforms, we strive to amplify the reach and impact of the Diamond Hand Cabybara coin. This initiative will not only expand our community but also solidify our presence in the crypto space, strengthening our brand and elevating our profile among potential investors.",
+    image: "./asset/image/capy cute.png",
+  },
+];
+
+let goals = [];
+
+// Function to populate the goals array with pixel positions
+function getGoalsPosition() {
+  const container = document.querySelector(".roadmap-container");
+  const containerWidth = container.offsetWidth; // Get the width of the container
+
+  const goalElements = document.querySelectorAll(".branch"); // Select all goal elements
+  goalElements.forEach((goal) => {
+    const goalId = goal.id; // Get the id of the goal
+    const leftPercentage = parseFloat(goal.style.left); // Get the left position (percentage)
+    const leftPosition = containerWidth * ((leftPercentage - 10) / 100); // Convert percentage to pixels
+    goals.push({ id: goalId, left: leftPosition }); // Store the goal id and its pixel position in the array
+  });
+}
+
+// Call this function once when the page loads or when you want to initialize the goals array
+getGoalsPosition();
+
+// Handle dragging logic
 dot.addEventListener("mousedown", startDragging);
-dot.addEventListener("touchstart", startDragging, { passive: false }); // Prevent default to enable dragging
+dot.addEventListener("touchstart", startDragging, { passive: false });
 
 function startDragging(e) {
   isDragging = true;
-
-  // Remove transition while dragging (this will prevent smooth movement)
   dot.style.transition = ""; // Disable transition during drag
 
-  // Prevent default behavior (for touch events)
   if (e.type === "touchstart") {
     e.preventDefault(); // Prevents scrolling while dragging
   }
-
-  // Set up mouse/touch move and end events
   document.addEventListener("mousemove", handleMouseMove);
   document.addEventListener("mouseup", stopDragging);
-  document.addEventListener("touchmove", handleMouseMove, { passive: false }); // Prevents scrolling during drag
+  document.addEventListener("touchmove", handleMouseMove, { passive: false });
   document.addEventListener("touchend", stopDragging);
 }
 
 function stopDragging() {
   isDragging = false;
-
-  // Remove move and end listeners when dragging stops
   document.removeEventListener("mousemove", handleMouseMove);
   document.removeEventListener("mouseup", stopDragging);
   document.removeEventListener("touchmove", handleMouseMove);
@@ -46,7 +126,6 @@ function stopDragging() {
 function handleMouseMove(e) {
   if (!isDragging) return;
 
-  // Get position from either mouse or touch event
   let clientX = e.clientX; // For mouse
   if (e.type.startsWith("touch")) {
     clientX = e.touches[0].clientX; // For touch
@@ -69,39 +148,17 @@ function updateUI() {
   // Update the line to match the dot's position
   lineExtension.style.width = `${currentLeft}px`;
 
-  // Trigger auto-scrolling if the dot is close to the left or right end
+  // Auto-scroll if the dot is close to the edge
   autoScrollRoadmap(currentLeft);
 
-  // Update the branches and check if the description should be shown
+  // Update the branches based on the current position
   updateBranches(currentLeft);
 }
 
-// Store the goals and their positions dynamically (from previous example)
-const goals = [];
-
-const container = document.querySelector(".roadmap-container");
-const containerWidth = container.offsetWidth; // Get the width of the container
-
-// Function to populate the goals array with pixel positions
-function getGoalsPosition() {
-  const goalElements = document.querySelectorAll(".branch"); // Select all goal elements
-  goalElements.forEach((goal) => {
-    const goalId = goal.id; // Get the id of the goal
-    const leftPercentage = parseFloat(goal.style.left); // Get the left position (percentage)
-    const leftPosition = containerWidth * ((leftPercentage - 10) / 100); // Convert percentage to pixels
-    goals.push({ id: goalId, left: leftPosition }); // Store the goal id and its pixel position in the array
-  });
-}
-console.log(goals);
-
-// Call this function once when the page loads or when you want to initialize the goals array
-getGoalsPosition();
-
 // Function to update the branches based on the current position
 function updateBranches(position) {
-  // Loop through the goals array instead of directly querying the DOM for branches
   goals.forEach((goal) => {
-    const branch = document.getElementById(goal.id); // Get the branch by its id
+    const branch = document.getElementById(goal.id);
     const verticalLine = branch.querySelector(".vertical-line");
     const labelAbove = branch.querySelector(".branch-label-above");
     const labelBelow = branch.querySelector(".branch-label-below");
@@ -116,7 +173,7 @@ function updateBranches(position) {
         labelBelow.style.color = "#4CAF50"; // Light up the label for below
       }
 
-      // Show the modal when a goal is activated
+      // Show the modal with information
       showPopup(branch);
     } else {
       verticalLine.style.backgroundColor = "#ccc"; // Reset the vertical line
@@ -127,7 +184,7 @@ function updateBranches(position) {
         labelBelow.style.color = "#333"; // Reset the label color for below
       }
 
-      // Hide the modal when the goal is deactivated
+      // Hide the modal if not activated
       hidePopup();
     }
   });
@@ -135,73 +192,52 @@ function updateBranches(position) {
 
 // Show the popup with goal information
 function showPopup(branch) {
-  const goalTitle = branch.querySelector("span").innerText; // Goal name
-  popupTitle.innerText = goalTitle;
+  const goalId = branch.id; // Get the ID of the branch
+  const goal = goalsData.find((g) => g.id === goalId); // Find goal data by ID
 
-  // Get the description for the specific goal
-  const goalDescription = getGoalDescription(goalTitle);
+  if (goal) {
+    popupTitle.innerText = goal.title; // Set the title
+    popupText.innerHTML = goal.description; // Set the description
+    popupImage.src = goal.image; // Set the image source
 
-  popupText.innerText = goalDescription;
-
-  // Show the modal with transition
-  popup.style.display = "flex"; // Initially set to flex
-  setTimeout(() => {
-    popup.classList.add("show"); // Add show class after display is set
-  }, 10); // A small timeout to ensure the display change is recognized by the browser
+    // Show the modal with transition
+    popup.style.display = "flex"; // Show the modal
+    setTimeout(() => {
+      popup.classList.add("show"); // Add the show class for animation
+    }, 10);
+  }
 }
 
-// Hide the popup with smooth transition
+// Hide the popup
 function hidePopup() {
   if (popup) {
-    // Check if popup is available
-    popup.classList.remove("show"); // Remove the show class to start the fade-out transition
+    popup.classList.remove("show"); // Remove show class
+    // Optionally hide the modal after transition
+    setTimeout(() => {
+      popup.style.display = "none"; // Hide modal completely after transition
+    }, 300); // Match the duration of the show transition
   }
 }
 
 popupClose.addEventListener("click", hidePopup);
 popup.addEventListener("click", hidePopup);
 
-// Define goal descriptions
-function getGoalDescription(goalTitle) {
-  const descriptions = {
-    "Goal 1: Meme Coin Community Growth":
-      "This goal focuses on building a strong community for the meme coin project through social engagement, campaigns, and influencer collaborations. The aim is to create a fun and loyal user base that drives the coin's value and adoption.",
-    "Goal 2: NFT Collection Launch":
-      "The NFT Collection will feature unique digital assets, designed to represent the meme coin ecosystem. These NFTs can be used in various applications, and the sale will raise funds and attract more investors into the community.",
-    "Goal 3: NFT Game Release":
-      "This goal is about launching an engaging NFT-based game where users can play to earn, stake NFTs, and engage with the meme coin ecosystem. The game will drive user interaction and coin utility.",
-    "Goal 4: Trading Bot and Staking Launch":
-      "Launch automated trading bots and staking solutions to enhance user experience and provide additional revenue streams. These tools will help users maximize profits while supporting the meme coin's value.",
-    "Goal 5: DHC Integration with BY1":
-      "Partner with BY1.io to allow DHC (our meme coin) to be used as in-app currency on their platform. This partnership will increase the utility of the coin and enhance its adoption.",
-    "Goal 6: Trading Tools Development":
-      "Develop and launch a set of advanced trading tools designed to help traders maximize their profits using the meme coin. This includes price alerts, charts, and automated trading systems.",
-    "Goal 7: DHC Token Utility Expansion":
-      "Expand the use cases of the DHC token by integrating it into more platforms, services, and marketplaces. This goal aims to increase the demand and real-world utility of the token.",
-    "Goal 8: Strategic Partnerships & Expansion":
-      "Focus on securing key strategic partnerships with influencers, projects, and platforms to help expand the meme coin ecosystem and increase its global reach.",
-  };
-  return descriptions[goalTitle] || "No description available for this goal.";
-}
-
-// Auto-scroll the roadmap container when the dot is near the right or left edge
+// Auto-scroll functionality
 function autoScrollRoadmap(dotPosition) {
   const containerWidth = roadmapContainer.offsetWidth;
   const containerScrollWidth = roadmapContainer.scrollWidth;
 
   // If the dot is near the right edge, scroll the container to the right
   if (dotPosition >= containerWidth - 200) {
-    // 100px buffer before triggering scroll
     const maxScroll = containerScrollWidth - containerWidth;
     roadmapContainer.scrollLeft = Math.min(
       maxScroll,
-      roadmapContainer.scrollLeft + 10 // Scroll to the right gradually
+      roadmapContainer.scrollLeft + 10
     );
   }
 
   // If the dot is near the left edge, scroll the container to the left
   else if (dotPosition - containerWidth <= containerWidth + 100) {
-    // 100px buffer for scrolling left
     roadmapContainer.scrollLeft = Math.max(
       0,
       roadmapContainer.scrollLeft - 10 // Scroll to the left gradually
@@ -212,26 +248,20 @@ function autoScrollRoadmap(dotPosition) {
 const backToStartBtn = document.getElementById("back-to-start-btn");
 
 // Event listener for "Back to Start" button
-backToStartBtn.addEventListener("click", () => {
-  moveDotToStart();
-});
+backToStartBtn.addEventListener("click", moveDotToStart);
 
 // Function to move the dot to the start node with transition
 function moveDotToStart() {
-  // Temporarily enable the transition for the start movement
   dot.style.transition = "left 0.3s ease"; // Smooth transition for left movement
+  currentLeft = 0; // Set currentLeft to 0 (start position)
 
-  // Set currentLeft to 0 (start position)
-  currentLeft = 0;
-
-  // Reset the branches' styles (goal 1 to goal 4, etc.)
+  // Reset the styles for all branches
   branches.forEach((branch) => {
     const verticalLine = branch.querySelector(".vertical-line");
     const labelAbove = branch.querySelector(".branch-label-above");
     const labelBelow = branch.querySelector(".branch-label-below");
-    console.log(branch);
 
-    // Reset the vertical line and label colors for all branches
+    // Reset styles for vertical lines and labels
     verticalLine.style.backgroundColor = "#ccc";
     if (labelAbove) {
       labelAbove.style.color = "#333"; // Reset the label color for above
@@ -240,9 +270,14 @@ function moveDotToStart() {
       labelBelow.style.color = "#333"; // Reset the label color for below
     }
   });
-  updateUI();
+
+  updateUI(); // Update the UI to reflect new position
+
   // After the transition ends, remove the transition so dragging won't be affected
   setTimeout(() => {
     dot.style.transition = ""; // Remove the transition after the movement
   }, 300); // Match the duration of the transition (0.3s)
 }
+
+// Call getGoalsPosition at the beginning to set up the goals array
+getGoalsPosition();
