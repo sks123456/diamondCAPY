@@ -1802,31 +1802,10 @@ a.plyr__control::before {
   }
 }
 
-/* Container Styling */
-.roadmap-container {
-  text-align: center;
-  padding: 20px;
-  background: linear-gradient(to bottom, #f9f9f9, #eaf3fc);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  margin: 20px;
-  font-family: "Arial", sans-serif;
-}
-
-/* Heading and Description */
-.roadmap-container h2 {
-  font-size: 2rem;
-  color: #4caf50;
-}
-
-.roadmap-container p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 20px;
-}
-
 /* Roadmap Structure */
 .roadmap {
+  user-select: none; /* This will disable text selection */
+
   position: relative;
   width: 100%;
   height: 300px;
@@ -1848,6 +1827,7 @@ a.plyr__control::before {
   line-height: 40px;
   font-weight: bold;
   font-size: 1rem;
+  z-index: 3; /* Ensuring the nodes stay above other elements */
 }
 
 /* Line Path and Dot */
@@ -1856,6 +1836,8 @@ a.plyr__control::before {
   flex-grow: 1;
   height: 40px;
   margin: 0 20px;
+  display: flex;
+  align-items: center; /* Aligns items in the middle */
 }
 
 /* Line Path */
@@ -1955,6 +1937,18 @@ a.plyr__control::before {
   margin-bottom: 5px;
 }
 
+.branch-label-above,
+.branch-label-below {
+  position: absolute;
+  left: 50%; /* Adjust horizontally based on container width */
+  transform: translateX(-50%); /* Center the label */
+  font-size: 0.9rem;
+  color: #ccc;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-top: 10px;
+}
+
 /* Vertical Line Styling */
 /* Vertical Line for Above Branches */
 .branch.above .vertical-line {
@@ -1986,4 +1980,72 @@ a.plyr__control::before {
 
 .branch.below .vertical-line {
   top: -50px; /* Position it above the branch for below branches */
+}
+
+/* Modal Background */
+.description-modal {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Initial opacity is 0 */
+  visibility: hidden; /* Make the modal invisible */
+  transition: opacity 0.3s ease, visibility 0s 0.3s; /* Smooth transition */
+}
+
+/* Modal Content Styling with Zoom-In */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 80%;
+  position: relative;
+  transform: scale(0.8); /* Initial scale smaller */
+  transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+}
+
+/* Close Button for Modal */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Action Button Styling */
+.modal-action-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.modal-action-btn:hover {
+  background-color: #45a049;
+}
+
+/* Show modal and zoom effect */
+.description-modal.show {
+  display: flex; /* Show the modal */
+  opacity: 1; /* Transition to full opacity */
+  visibility: visible; /* Make the modal visible */
+  transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+}
+
+.description-modal.show .modal-content {
+  transform: scale(1); /* Zoom-in effect */
 }

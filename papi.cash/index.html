@@ -605,26 +605,37 @@ vgo(‘process’);
                 <div class="dot" id="dot"></div>
               </div>
               <div class="branches">
+                <!-- Existing Goals -->
                 <div class="branch above" style="left: 20%;">
                   <div class="vertical-line"></div>
-                  <span class="branch-label-above">Goal 1: Community Building</span>
+                  <span class="branch-label-above" data-goal="1">Goal 1: Community Building</span>
                 </div>
                 <div class="branch below" style="left: 40%;">
                   <div class="vertical-line"></div>
-                  <span class="branch-label-below">Goal 2: Marketing and Adoption</span>
+                  <span class="branch-label-below" data-goal="2">Goal 2: Marketing and Adoption</span>
                 </div>
                 <div class="branch above" style="left: 60%;">
                   <div class="vertical-line"></div>
-                  <span class="branch-label-above">Goal 3: Sustainability</span>
+                  <span class="branch-label-above" data-goal="3">Goal 3: Sustainability</span>
                 </div>
                 <div class="branch below" style="left: 80%;">
                   <div class="vertical-line"></div>
-                  <span class="branch-label-below">Goal 4: Security and Compliance</span>
+                  <span class="branch-label-below" data-goal="4">Goal 4: Security and Compliance</span>
                 </div>
               </div>
-              
               <div class="end-node">End</div>
-            </div>      
+            </div>
+            
+            <!-- Modal for Description -->
+            <div id="description-modal" class="description-modal">
+              <div class="modal-content">
+                <span id="modal-close" class="modal-close">&times;</span>
+                <h2 id="modal-title">Goal Title</h2>
+                <div id="modal-description">Goal description will go here...</div>
+                <button id="modal-action-btn" class="modal-action-btn">Take Action</button>
+              </div>
+            </div>
+            
         </section>
     </main>
     <footer id="footer" class="footer">
@@ -656,7 +667,7 @@ vgo(‘process’);
 
 
   <!-- Include React and ReactDOM via CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
   <!-- Include Babel for JSX Compilation -->
