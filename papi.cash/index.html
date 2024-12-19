@@ -652,12 +652,39 @@ vgo(‘process’);
             <!-- Modal for Description -->
             <div id="description-modal" class="description-modal">
               <div class="modal-content">
-                <span id="modal-close" class="modal-close">&times;</span>
-                <h2 id="modal-title">Goal Title</h2>
+                <div class="modal-header">
+                  <span id="modal-close" class="modal-close">&times;</span>
+                  <h2 id="modal-title">Goal Title</h2>
+                </div>
                 <img id="modal-image" src="" alt="Goal Image">
-                <div id="modal-description">Goal description will go here...</div>
+                <div id="modal-description">
+                  <!-- Main content -->
+                  <p>This is where the goal description goes.</p>
+                  <p>More details about the goal...</p>
+                  <p>Additional information or sub-goals...</p>
+                </div>
+                <div id="modal-timeline" class="modal-timeline">
+                  <h3>Timeline</h3>
+                  <ul>
+                    <li><strong>January 2024:</strong> Initial Planning</li>
+                    <li><strong>February 2024:</strong> First Stage Execution</li>
+                    <li><strong>March 2024:</strong> Review and Adjustments</li>
+                  </ul>
+                </div>
+                <div id="modal-challenges" class="modal-challenges">
+                  <h3>Challenges</h3>
+                  <ul>
+                    <li>Challenge 1: Resource Allocation</li>
+                    <li>Challenge 2: Time Management</li>
+                    <li>Challenge 3: Coordination between teams</li>
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                  <button id="modal-action-btn" class="modal-action-btn">Action Button</button>
+                </div>
               </div>
             </div>
+
             <!-- Add this button somewhere in your HTML, e.g., below the roadmap -->
 
         </section>

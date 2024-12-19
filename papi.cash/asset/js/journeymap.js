@@ -21,6 +21,16 @@ const goalsData = [
       "As a Diamond Hand Cabybara meme coin, this goal focuses on building a vibrant community through engaging social campaigns, educational initiatives, and strategic influencer partnerships. Our objective is to cultivate a dedicated user base that resonates with the values of loyalty and long-term holding, ensuring our coin thrives within the larger cryptocurrency ecosystem.",
     image:
       "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    timeline: [
+      "January 2024: Initial Social Media Campaign",
+      "February 2024: Community Engagement Activities",
+      "March 2024: Influencer Partnerships and Brand Ambassadors",
+    ],
+    challenges: [
+      "Challenge 1: Building a loyal community",
+      "Challenge 2: Competing with other meme coins",
+      "Challenge 3: Ensuring long-term engagement",
+    ],
   },
   {
     id: "goal2",
@@ -29,6 +39,16 @@ const goalsData = [
       "The NFT Collection will introduce unique Cabybara-themed digital assets, each embodying the spirit of our meme coin project. These collectibles will not only serve as fun and visually appealing items but will also play a role in fundraising and community building. By incorporating utility and desirability, we aim to attract investors and collectors who want to be part of the Cabybara ecosystem.",
     image:
       "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    timeline: [
+      "April 2024: Design and Conceptualization",
+      "May 2024: NFT Minting Process",
+      "June 2024: Launch of the NFT Collection",
+    ],
+    challenges: [
+      "Challenge 1: Designing unique and desirable NFTs",
+      "Challenge 2: Ensuring smooth minting and purchase process",
+      "Challenge 3: Attracting collectors and investors",
+    ],
   },
   {
     id: "goal3",
@@ -37,6 +57,16 @@ const goalsData = [
       "This goal is centered around the launch of an engaging NFT-based game leveraging the charm of the Cabybara meme. Players will have the opportunity to earn unique NFTs, stake their assets, and fully immerse themselves in a playful environment that promotes interaction and utility within our meme coin universe. With this game, we aim to create a fun way for users to engage with our coin ecosystem while driving adoption and interaction.",
     image:
       "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    timeline: [
+      "July 2024: Game Design and Concept Creation",
+      "August 2024: Development and Testing",
+      "September 2024: Launch and Community Participation",
+    ],
+    challenges: [
+      "Challenge 1: Balancing fun and utility in gameplay",
+      "Challenge 2: Attracting players while maintaining interest",
+      "Challenge 3: Integrating NFTs seamlessly into the game",
+    ],
   },
   {
     id: "goal4",
@@ -45,6 +75,16 @@ const goalsData = [
       "To empower our community, we are committed to launching automated trading bots and staking solutions. This initiative will enhance the user experience by providing tools that allow participants to maximize their returns while helping to stabilize and support the value of the Diamond Hand Cabybara coin. Our goal is to create an ecosystem where both novice and seasoned traders can thrive.",
     image:
       "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    timeline: [
+      "October 2024: Trading Bot Development and Testing",
+      "November 2024: Staking Platform Setup",
+      "December 2024: Official Launch of Bots and Staking",
+    ],
+    challenges: [
+      "Challenge 1: Ensuring reliability and security of bots",
+      "Challenge 2: Attracting users to participate in staking",
+      "Challenge 3: Providing ongoing support for bot performance",
+    ],
   },
   {
     id: "goal5",
@@ -53,6 +93,16 @@ const goalsData = [
       "Partnering with BY1.io represents a significant step in enhancing the utility of the Diamond Hand Cabybara coin. Our aim is to integrate DHC as an in-app currency on their platform, creating real-world applications for our coin. This partnership will not only drive adoption but also create value for holders, reinforcing the commitment to building connections beyond the cryptocurrency space.",
     image:
       "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    timeline: [
+      "January 2025: Initial Partnership Discussions",
+      "February 2025: Integration Development",
+      "March 2025: Live Integration with BY1 Platform",
+    ],
+    challenges: [
+      "Challenge 1: Integrating DHC smoothly into BY1",
+      "Challenge 2: Gaining user trust in the new currency",
+      "Challenge 3: Ensuring the partnership benefits all parties",
+    ],
   },
   {
     id: "goal6",
@@ -61,6 +111,16 @@ const goalsData = [
       "We envision a suite of advanced trading tools tailored specifically for the Cabybara community. These tools will include price alerts, market analysis charts, and automated trading systems, all designed to assist traders in making informed decisions. By providing powerful resources, we aim to empower our community and promote successful trading strategies that benefit everyone involved.",
     image:
       "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    timeline: [
+      "April 2025: Market Analysis Tool Development",
+      "May 2025: Price Alert System Rollout",
+      "June 2025: Automated Trading Tools Testing and Launch",
+    ],
+    challenges: [
+      "Challenge 1: Developing accurate and reliable market data",
+      "Challenge 2: Ensuring usability for all skill levels",
+      "Challenge 3: Attracting users to the trading platform",
+    ],
   },
   {
     id: "goal7",
@@ -68,14 +128,34 @@ const goalsData = [
     description:
       "Expand the use cases of the DHC token by integrating it into more platforms, services, and marketplaces.",
     image:
-      "Expanding the utility of the Diamond Hand Cabybara token is essential to our long-term vision. We will work tirelessly to integrate DHC into various platforms, services, and decentralized marketplaces, ensuring that our token is not just a speculative asset but a functional part of everyday transactions. This goal will drive demand and underpin the real-world use cases for our community.",
+      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    timeline: [
+      "July 2025: Research New Platform Integrations",
+      "August 2025: Secure Partnerships with New Platforms",
+      "September 2025: Launch DHC Token Integration",
+    ],
+    challenges: [
+      "Challenge 1: Finding compatible platforms for DHC",
+      "Challenge 2: Overcoming regulatory hurdles",
+      "Challenge 3: Maintaining user adoption across platforms",
+    ],
   },
   {
     id: "goal8",
     title: "Goal 8: Strategic Partnerships & Expansion",
     description:
       "Strategic partnerships will be key to our growth strategy. By collaborating with influencers, projects, and platforms, we strive to amplify the reach and impact of the Diamond Hand Cabybara coin. This initiative will not only expand our community but also solidify our presence in the crypto space, strengthening our brand and elevating our profile among potential investors.",
-    image: "./asset/image/capy cute.png",
+    image: "/papi.cash/asset/image/capy%20cute.png",
+    timeline: [
+      "October 2025: Identify Key Strategic Partners",
+      "November 2025: Initiate Partnership Negotiations",
+      "December 2025: Announce Strategic Partnerships",
+    ],
+    challenges: [
+      "Challenge 1: Identifying high-value partnerships",
+      "Challenge 2: Building strong, sustainable partnerships",
+      "Challenge 3: Managing relationships with multiple partners",
+    ],
   },
 ];
 
@@ -195,10 +275,34 @@ function showPopup(branch) {
   const goalId = branch.id; // Get the ID of the branch
   const goal = goalsData.find((g) => g.id === goalId); // Find goal data by ID
 
+  console.log(goal); // Check if goal is found
+
   if (goal) {
-    popupTitle.innerText = goal.title; // Set the title
-    popupText.innerHTML = goal.description; // Set the description
-    popupImage.src = goal.image; // Set the image source
+    // Set the title, description, and image
+    popupTitle.innerText = goal.title;
+    popupText.innerHTML = goal.description; // Check if description exists
+    popupImage.src = goal.image;
+
+    // Set Timeline content dynamically
+    const timelineContainer = document.getElementById("modal-timeline");
+    timelineContainer.innerHTML =
+      "<h3>Timeline</h3><ul>" +
+      goal.timeline
+        .map(
+          (item) =>
+            `<li><strong>${item.split(":")[0]}:</strong> ${
+              item.split(":")[1]
+            }</li>`
+        )
+        .join("") +
+      "</ul>";
+
+    // Set Challenges content dynamically
+    const challengesContainer = document.getElementById("modal-challenges");
+    challengesContainer.innerHTML =
+      "<h3>Challenges</h3><ul>" +
+      goal.challenges.map((challenge) => `<li>${challenge}</li>`).join("") +
+      "</ul>";
 
     // Show the modal with transition
     popup.style.display = "flex"; // Show the modal
@@ -218,6 +322,7 @@ function hidePopup() {
     }, 300); // Match the duration of the show transition
   }
 }
+popupClose.addEventListener("touchstart", hidePopup);
 
 popupClose.addEventListener("click", hidePopup);
 popup.addEventListener("click", hidePopup);

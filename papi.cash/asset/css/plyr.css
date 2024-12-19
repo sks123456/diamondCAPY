@@ -2010,21 +2010,34 @@ a.plyr__control::before {
 /* Modal Content */
 .modal-content {
   background: #fff;
-  border-radius: 12px; /* Rounded corners */
+  border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  max-width: 800px; /* Increase the max-width for a wider modal */
-  width: 90%; /* Flexible width for small screens */
-  max-height: 70vh; /* Set a maximum height to keep it shorter */
-  overflow-y: auto; /* Allow overflow scrolling if content exceeds max-height */
-  margin: 30px auto; /* Center the modal */
-  padding: 20px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 85vh;
+  overflow: auto;
+  margin: 30px auto;
+  padding: 0 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Modal Header */
+.modal-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 2;
+  padding: 10px 0;
+  border-bottom: 2px solid #ddd;
+  text-align: center;
 }
 
 /* Modal Title */
 #modal-title {
   font-size: 28px; /* Bigger font size for title */
   font-weight: bold;
-  margin-bottom: 15px; /* More spacing below the title */
   color: #333; /* Darker color for title */
 }
 
@@ -2036,12 +2049,98 @@ a.plyr__control::before {
   border-radius: 12px; /* Match corners with modal */
   margin-bottom: 20px; /* Space below the image */
 }
-
 /* Modal Description */
 #modal-description {
+  flex-grow: 1;
+  max-height: calc(
+    70vh - 160px
+  ); /* Account for header, image, and footer height */
+  padding-right: 10px; /* Add padding for scrollbar */
+  margin-bottom: 20px;
   font-size: 16px;
-  line-height: 1.5; /* Increase line height for readability */
-  color: #333; /* Color for text */
+  color: #333;
+  line-height: 1.5;
+}
+
+#modal-description p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #444;
+}
+
+/* Timeline Section */
+.modal-timeline {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.modal-timeline h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.modal-timeline ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal-timeline li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.modal-timeline li strong {
+  color: #4caf50;
+}
+
+/* Challenges Section */
+.modal-challenges {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.modal-challenges h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.modal-challenges ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal-challenges li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.modal-challenges li strong {
+  color: #e74c3c;
+}
+
+/* Modal Footer */
+.modal-footer {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 10px;
+  border-top: 2px solid #ddd;
+  z-index: 2;
+  text-align: center;
+}
+
+.modal-action-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 /* Modal Close Button */
@@ -2052,22 +2151,85 @@ a.plyr__control::before {
   top: 15px; /* Space from top */
   right: 25px; /* Space from right */
   color: #888; /* Color for close button */
+  z-index: 10; /* Ensure buttons are above other elements */
 }
 
 .modal-close:hover {
   color: #333; /* Change color on hover */
 }
 
-/* Show modal and zoom effect */
+/* Modal Action Buttons */
+#modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.action-btn,
+.close-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.action-btn:hover {
+  background-color: #45a049;
+}
+
+.close-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.close-btn:hover {
+  background-color: #e53935;
+}
+
+/* Show modal */
 .description-modal.show {
-  display: flex; /* Show the modal */
-  opacity: 1; /* Transition to full opacity */
-  visibility: visible; /* Make the modal visible */
-  transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.3s ease-in-out;
 }
 
 .description-modal.show .modal-content {
-  transform: scale(1); /* Zoom-in effect */
+  transform: scale(1);
+}
+
+/* Adjust modal for small screens */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+  }
+
+  #modal-title {
+    font-size: 24px;
+  }
+
+  .modal-close {
+    font-size: 20px;
+  }
+
+  #modal-buttons {
+    flex-direction: column;
+  }
+
+  .action-btn,
+  .close-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
 }
 
 /* Adjust branch positioning for smaller screens */
