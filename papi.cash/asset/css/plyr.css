@@ -2044,7 +2044,7 @@ a.plyr__control::before {
 /* Hero Image */
 #modal-image {
   width: 100%; /* Full width */
-  height: 300px; /* Fixed height for all images */
+  height: 500px; /* Fixed height for all images */
   object-fit: cover; /* Maintain aspect ratio and cover the set dimensions */
   border-radius: 12px; /* Match corners with modal */
   margin-bottom: 20px; /* Space below the image */

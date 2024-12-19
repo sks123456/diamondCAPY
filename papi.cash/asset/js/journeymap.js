@@ -19,8 +19,7 @@ const goalsData = [
     title: "Goal 1: Meme Coin Community Growth",
     description:
       "As a Diamond Hand Cabybara meme coin, this goal focuses on building a vibrant community through engaging social campaigns, educational initiatives, and strategic influencer partnerships. Our objective is to cultivate a dedicated user base that resonates with the values of loyalty and long-term holding, ensuring our coin thrives within the larger cryptocurrency ecosystem.",
-    image:
-      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    image: "/papi.cash/asset/image/goals/goal1.png",
     timeline: [
       "January 2024: Initial Social Media Campaign",
       "February 2024: Community Engagement Activities",
@@ -37,8 +36,7 @@ const goalsData = [
     title: "Goal 2: NFT Collection Launch",
     description:
       "The NFT Collection will introduce unique Cabybara-themed digital assets, each embodying the spirit of our meme coin project. These collectibles will not only serve as fun and visually appealing items but will also play a role in fundraising and community building. By incorporating utility and desirability, we aim to attract investors and collectors who want to be part of the Cabybara ecosystem.",
-    image:
-      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    image: "/papi.cash/asset/image/goals/goal2.png",
     timeline: [
       "April 2024: Design and Conceptualization",
       "May 2024: NFT Minting Process",
@@ -55,8 +53,7 @@ const goalsData = [
     title: "Goal 3: NFT Game Release",
     description:
       "This goal is centered around the launch of an engaging NFT-based game leveraging the charm of the Cabybara meme. Players will have the opportunity to earn unique NFTs, stake their assets, and fully immerse themselves in a playful environment that promotes interaction and utility within our meme coin universe. With this game, we aim to create a fun way for users to engage with our coin ecosystem while driving adoption and interaction.",
-    image:
-      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    image: "/papi.cash/asset/image/goals/goal3.png",
     timeline: [
       "July 2024: Game Design and Concept Creation",
       "August 2024: Development and Testing",
@@ -73,8 +70,7 @@ const goalsData = [
     title: "Goal 4: Trading Bot and Staking Launch",
     description:
       "To empower our community, we are committed to launching automated trading bots and staking solutions. This initiative will enhance the user experience by providing tools that allow participants to maximize their returns while helping to stabilize and support the value of the Diamond Hand Cabybara coin. Our goal is to create an ecosystem where both novice and seasoned traders can thrive.",
-    image:
-      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    image: "/papi.cash/asset/image/goals/goal4.png",
     timeline: [
       "October 2024: Trading Bot Development and Testing",
       "November 2024: Staking Platform Setup",
@@ -91,8 +87,7 @@ const goalsData = [
     title: "Goal 5: DHC Integration with BY1",
     description:
       "Partnering with BY1.io represents a significant step in enhancing the utility of the Diamond Hand Cabybara coin. Our aim is to integrate DHC as an in-app currency on their platform, creating real-world applications for our coin. This partnership will not only drive adoption but also create value for holders, reinforcing the commitment to building connections beyond the cryptocurrency space.",
-    image:
-      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    image: "/papi.cash/asset/image/goals/goal5.png",
     timeline: [
       "January 2025: Initial Partnership Discussions",
       "February 2025: Integration Development",
@@ -109,8 +104,7 @@ const goalsData = [
     title: "Goal 6: Trading Tools Development",
     description:
       "We envision a suite of advanced trading tools tailored specifically for the Cabybara community. These tools will include price alerts, market analysis charts, and automated trading systems, all designed to assist traders in making informed decisions. By providing powerful resources, we aim to empower our community and promote successful trading strategies that benefit everyone involved.",
-    image:
-      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    image: "/papi.cash/asset/image/goals/goal6.png",
     timeline: [
       "April 2025: Market Analysis Tool Development",
       "May 2025: Price Alert System Rollout",
@@ -127,8 +121,7 @@ const goalsData = [
     title: "Goal 7: DHC Token Utility Expansion",
     description:
       "Expand the use cases of the DHC token by integrating it into more platforms, services, and marketplaces.",
-    image:
-      "https://github.com/sks123456/diamondCAPY/blob/f7f8a56cc5219cc68f83ef6873476a0a6bfa2d03/papi.cash/asset/image/capy%20cute.png",
+    image: "/papi.cash/asset/image/goals/goal7.png",
     timeline: [
       "July 2025: Research New Platform Integrations",
       "August 2025: Secure Partnerships with New Platforms",
@@ -145,7 +138,7 @@ const goalsData = [
     title: "Goal 8: Strategic Partnerships & Expansion",
     description:
       "Strategic partnerships will be key to our growth strategy. By collaborating with influencers, projects, and platforms, we strive to amplify the reach and impact of the Diamond Hand Cabybara coin. This initiative will not only expand our community but also solidify our presence in the crypto space, strengthening our brand and elevating our profile among potential investors.",
-    image: "/papi.cash/asset/image/capy%20cute.png",
+    image: "/papi.cash/asset/image/goals/goal8.png",
     timeline: [
       "October 2025: Identify Key Strategic Partners",
       "November 2025: Initiate Partnership Negotiations",
