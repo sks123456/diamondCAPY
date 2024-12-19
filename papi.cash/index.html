@@ -322,6 +322,7 @@ vgo(‘process’);
   </div>
   <div class="page-wrapper">
     <main id="main" class="main">
+      <section id="top">
       <header class="section is--home-hero">
         <div class="container is--header-100vh">
           <div class="header_title-wrap">
@@ -342,7 +343,8 @@ vgo(‘process’);
               class="shadow_homw" /></div>
         </div>
       </header>
-      <section class="section is--bluebg">
+      </section>
+      <section class="section is--bluebg" id="aboutus">
         <div class="container is--ig-margins">
           <div class="flex-wrap is--gap2em">
             <div class="flexcol-50 is--vert-center">
@@ -423,7 +425,7 @@ vgo(‘process’);
         </div>
       </section>
       
-      <section total-frames="120" url-start="#" url-end=".png"
+      <section total-frames="120" url-start="#" url-end=".png" id="why"
         scroll-start="top bottom" scroll-end="bottom bottom" floating-zeros="4"
         data-w-id="8bbe8e37-bbf4-8013-4734-ed214cf51c71" class="section is--rocket">
         <div class="container is--rocket-relative">
@@ -554,6 +556,7 @@ vgo(‘process’);
               </div>
             </div>
             <div>
+              <section id="journeymap">
               <div class="title-wrap is--margin-2em">
                 <h3>
                   <img src="./favicon.ico" alt="PAPI Logo" class="journey-logo" /> Journey Map
@@ -650,6 +653,7 @@ vgo(‘process’);
             </div>
             
             <!-- Modal for Description -->
+
             <div id="description-modal" class="description-modal">
               <div class="modal-content">
                 <div class="modal-header">
@@ -686,7 +690,7 @@ vgo(‘process’);
             </div>
 
             <!-- Add this button somewhere in your HTML, e.g., below the roadmap -->
-
+          </section>
         </section>
     </main>
     <footer id="footer" class="footer">
@@ -704,13 +708,25 @@ vgo(‘process’);
       <div class="nav_button w-nav-button"><img src="https://papi.cash/asset/image/svg/whiteburger.svg" loading="lazy" alt=""
           class="burger white" /><img src="https://papi.cash/asset/image/svg/blueburger.svg" loading="lazy" alt="" class="burger blue" />
       </div>
+      
     </div>
     <nav role="navigation" class="nav_menu w-nav-menu">
       <div class="nav_flex-wrap">
         
         <div class="menu_link-wrap">
-          <a href="https://twitter.com/PapiCoinEth_" target="_blank" class="nav_link w-nav-link">Twitter</a>
-          <a href="https://t.me/PapiCoinETH" target="_blank" class="nav_link w-nav-link">Telegram</a>
+          <a href="#top" target="_blank" class="nav_link w-nav-link">Meet the Mascot</a>
+          <a href="#aboutus" target="_blank" class="nav_link w-nav-link">Who Are We</a>
+          <a href="#why" target="_blank" class="nav_link w-nav-link">Why Choose US</a>
+          <a href="#journeymap" target="_blank" class="nav_link w-nav-link">Where We Aiming</a>
+           <!-- Custom Image Icons for Twitter and Telegram -->
+           <div class="menu_link-wrap2">
+            <a href="https://twitter.com/PapiCoinEth_" target="_blank" class="nav_link w-nav-link">
+              <img src="asset/image/svg/xicon.svg" alt="Twitter" class="nav-icon">
+            </a>
+            <a href="https://t.me/PapiCoinETH" target="_blank" class="nav_link w-nav-link">
+              <img src="asset/image/svg/telegramicon.svg" alt="Telegram" class="nav-icon">
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -718,7 +734,7 @@ vgo(‘process’);
 
 
   <!-- Include React and ReactDOM via CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js"></>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
   <!-- Include Babel for JSX Compilation -->

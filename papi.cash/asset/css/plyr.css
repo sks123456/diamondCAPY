@@ -2287,3 +2287,13 @@ a.plyr__control::before {
     height: 200px; /* Shorter height on small screens for better visibility */
   }
 }
+.menu_link-wrap2 {
+  display: flex; /* Use flexbox to line up the icons horizontally */
+  gap: 20px; /* Space between icons */
+  align-items: center; /* Vertically center the icons */
+}
+
+.nav-icon {
+  width: 10%; /* Set the size of the icons */
+  height: auto; /* Maintain aspect ratio */
+}
